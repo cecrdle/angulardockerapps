@@ -1,10 +1,14 @@
 version: '2.1'
 
 services:
-  firstazure:
-    image: firstazure
+  firstzureapp:
+    image: firstaureapp
     build: .
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
-      - 4200:4200
+      - 80:80
+      - 443:443
+      - 9229:9229
+    ## set your startup file here
+    command: [nginx-debug, '-g', 'daemon off;']    
